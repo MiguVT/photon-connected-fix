@@ -122,9 +122,9 @@ uniform int currentRenderedItemId;
 #endif
 
 void main() {
-    uv = (gl_TextureMatrix[0] * gl_MultiTexCoord0)
-             .xy; // Faster method breaks on Intel for some reason, thanks to
-                  // ilux-git for finding this!
+    #uv = (gl_TextureMatrix[0] * gl_MultiTexCoord0)
+    #         .xy; // Faster method breaks on Intel for some reason, thanks to
+    #              // ilux-git for finding this!
     light_levels = clamp01(gl_MultiTexCoord1.xy * rcp(240.0));
     tint = gl_Color;
     material_mask = get_material_mask();
